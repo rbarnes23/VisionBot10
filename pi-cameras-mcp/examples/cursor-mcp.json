@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "pi-cameras": {
+      "url": "http://100.109.182.59:8765/mcp",
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN"
+      }
+    }
+  }
+}

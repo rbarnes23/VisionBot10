@@ -1,0 +1,21 @@
+[Unit]
+Description=Pi camera MCP and MJPEG streams
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+SupplementaryGroups=video render
+WorkingDirectory=__REPO__
+EnvironmentFile=-/etc/pi-cameras-mcp.env
+ExecStart=__VENV__/bin/pi-cameras-mcp serve
+Restart=on-failure
+RestartSec=2
+StartLimitIntervalSec=60
+StartLimitBurst=10
+KillMode=mixed
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
